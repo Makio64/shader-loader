@@ -1,7 +1,7 @@
 {
   "name": "shader-loader",
   "version": "1.0.0",
-  "description": "A glsl loader for webpack witch work with chunks",
+  "description": "glsl loader for webpack working with chunks (inspired by ShaderLoader from cabbibo)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
