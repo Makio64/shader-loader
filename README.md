@@ -32,7 +32,7 @@ module: {
 shader: {
 	// chunks folder, chunkpath by default is ""
 	chunkPath: "chunks"
-},
+}
 ```
 
 ## License
