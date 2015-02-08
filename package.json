@@ -1,0 +1,26 @@
+{
+  "name": "shader-loader",
+  "version": "1.0.0",
+  "description": "A glsl loader for webpack witch work with chunks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Makio64/shader-loader"
+  },
+  "keywords": [
+    "glsl",
+    "webpack",
+    "loader",
+    "shader",
+    "chunks"
+  ],
+  "author": "David Ronai @Makio64",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Makio64/shader-loader/issues"
+  },
+  "homepage": "https://github.com/Makio64/shader-loader"
+}
