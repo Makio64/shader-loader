@@ -8,31 +8,32 @@ var queue = 0;
 var chunkPath = "";
 
 module.exports = function(source) {
-    this.cacheable && this.cacheable();
-    
-    callback = this.async();
+	this.cacheable && this.cacheable();
 
-    finalString = source
+	callback = this.async();
 
-    if(this.options.glsl.chunkPath)
-   		chunkPath =  this.options.glsl.chunkPath
+	finalString = source
+
+	if(this.options.glsl.chunkPath)
+		   chunkPath =  this.options.glsl.chunkPath
 
 	r = /\$(\w+)/gi
-		 
+
 	chunks = {}
 	match = source.match( r )
-	for (var i = 0; i < match.length; i++) {
-		chunks[match[i]] = ''
-	};
 
-	if(chunks == null){ 
+	if(match){
+		for (var i = 0; i < match.length; i++) {
+			chunks[match[i]] = ''
+		}
+	} else {
 		onChunksLoaded()
 		return ""
 	}
-	
+
 	for (var key in chunks){
 		addChunk.call(this,key);
-    };
+	}
 
 	return ""
 }
@@ -46,7 +47,7 @@ function addChunk(key){
 	var headerPath = path.resolve(this.context+"/"+chunkPath+"/"+name+".glsl");
 
 	this.addDependency(headerPath);
-	
+
 	fs.readFile(headerPath, "utf-8", function(err, content) {
 		queue--
 		chunks[key]=content
@@ -56,7 +57,7 @@ function addChunk(key){
 		else if(queue==0){
 			onChunksLoaded()
 		}
-    });
+	});
 }
 
 function onChunksLoaded(){
