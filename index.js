@@ -2,16 +2,14 @@ var path = require('path');
 var fs = require('fs');
 
 var chunks;
-var finalString;
 var chunkPath = "";
 
 module.exports = function(source) {
 	this.cacheable && this.cacheable();
 
 	this.callback = this.async();
-	if(!this.callback){ return source }
 
-	finalString = source
+	this.finalString = source
 
 	if(this.options.glsl.chunkPath){
 		chunkPath =  this.options.glsl.chunkPath
@@ -62,14 +60,16 @@ function addChunk(key){
 }
 
 function onChunksLoaded(){
-	if(this.isDone)return
+	if(this.isDone){
+		return
+	}
 	this.isDone = true;
 
 	for (var key in chunks){
 		re = new RegExp("(\\"+key+")", "gi");
-		finalString = finalString.replace(re,chunks[key])
+		this.finalString = this.finalString.replace(re,chunks[key])
 	}
-	finalString = "module.exports = " + JSON.stringify(finalString)
+	this.finalString = "module.exports = " + JSON.stringify(this.finalString)
 
-	this.callback(null, finalString)
+	this.callback(null, this.finalString)
 }
