@@ -37,5 +37,8 @@ void main(void) {
 }
 ```
 
+Learn more about loaders & webpack:
+http://webpack.github.io/docs/loaders.html
+
 ## License
 MIT (http://www.opensource.org/licenses/mit-license.php)

@@ -9,9 +9,7 @@ module.exports = function(source) {
 	this.cacheable && this.cacheable();
 
 	this.callback = this.async();
-	if(!this.callback){
-		return source
-	}
+	if(!this.callback){ return source }
 
 	finalString = source
 
