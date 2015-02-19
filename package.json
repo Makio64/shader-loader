@@ -1,6 +1,6 @@
 {
   "name": "shader-loader",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "glsl loader for webpack working with chunks (inspired by ShaderLoader from cabbibo)",
   "main": "index.js",
   "scripts": {
