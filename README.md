@@ -16,7 +16,7 @@ module: {
 		{ test: /\.glsl$/, loader: 'shader' },
 	],
 },
-shader: {
+glsl: {
 	// chunks folder, chunkpath by default is ""
 	chunkPath: "chunks"
 }
