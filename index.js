@@ -11,7 +11,7 @@ module.exports = function(source) {
 
 	this.finalString = source
 
-	if(this.options.glsl.chunkPath){
+	if(this.options.glsl && this.options.glsl.chunkPath){
 		chunkPath =  this.options.glsl.chunkPath
 	}
 
