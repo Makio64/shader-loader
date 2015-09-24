@@ -18,7 +18,7 @@ module.exports = function(source) {
 	this.queue = 0
 	this.isDone = false
 
-	r = /\$(\w+)/gi
+	r = /\$[\w-.]+/gi
 
 	chunks = {}
 	match = source.match( r )
