@@ -18,9 +18,10 @@ module: {
 },
 glsl: {
 	// chunks folder, chunkpath by default is ""
-	chunkPath: "chunks"
+	chunkPath: __dirname+"/glsl/chunks"
 }
 ```
+# Warning : the chunkPath have to be absolute to your glsl folder
 
 You can now require your glsl files:
 ``` javascript

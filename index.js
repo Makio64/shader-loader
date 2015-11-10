@@ -40,7 +40,7 @@ function addChunk(key){
 
 	var name = key.substr(1, key.length-1)
 
-	var headerPath = path.resolve(this.context+"/"+chunkPath+"/"+name+".glsl");
+	var headerPath = path.resolve(chunkPath+"/"+name+".glsl");
 
 	this.dependency(headerPath);
 
