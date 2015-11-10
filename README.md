@@ -21,7 +21,7 @@ glsl: {
 	chunkPath: __dirname+"/glsl/chunks"
 }
 ```
-# Warning : the chunkPath have to be absolute to your glsl folder
+# Warning : the chunkPath have to an absolute path !
 
 You can now require your glsl files:
 ``` javascript
