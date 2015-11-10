@@ -13,7 +13,7 @@ Config webpack:
 ``` javascript
 module: {
 	loaders: [
-		{ test: /\.glsl$/, loader: 'shader' },
+		{ test: /\.(glsl|vs|fs)$/, loader: 'shader' },
 	],
 },
 glsl: {
