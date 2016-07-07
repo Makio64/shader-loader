@@ -1,6 +1,6 @@
 # Glsl loader for webpack
 
-A simple glsl loader for webpack working with chunks writed by [@makio64](https://twitter.com/makio64) & inspired by [ShaderLoader](https://github.com/cabbibo/ShaderLoader) from [@cabbibo](https://twitter.com/cabbibo)
+A simple glsl loader for webpack working with chunk & inspired by [ShaderLoader](https://github.com/cabbibo/ShaderLoader)
 
 ## Getting started
 
@@ -17,11 +17,9 @@ module: {
 	],
 },
 glsl: {
-	// chunks folder, chunkpath by default is ""
-	chunkPath: __dirname+"/glsl/chunks"
+	chunkPath: __dirname+"/glsl/chunks" // default is "", warning : the path need to be an absolute path
 }
 ```
-# Warning : the chunkPath have to an absolute path !
 
 You can now require your glsl files:
 ``` javascript
@@ -29,7 +27,7 @@ var shaderVx = require("./shader-vx.glsl");
 // => return myShader-vx.glsl as string and with the chunks replaced
 ```
 
-if you use the synthax $name in your shader.glsl it will be replaced by the content of name.glsl ( example with $fog above ) :
+if you use $name in your shader.glsl it will be replaced by the content of name.glsl ( example with $fog above ) :
 
 ``` glsl
 void main(void) {
