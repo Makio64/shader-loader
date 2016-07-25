@@ -1,12 +1,12 @@
 # Glsl loader for webpack
 
-A simple glsl loader for webpack working with chunk & inspired by [ShaderLoader](https://github.com/cabbibo/ShaderLoader)
+Glsl loader for webpack & webpack2. It support chunks & inspire by [ShaderLoader](https://github.com/cabbibo/ShaderLoader)
 
 ## Getting started
 
 Install:
 ``` shell
-npm install shader-loader --saveDev
+npm install shader-loader --save-dev
 ```
 
 Config webpack:
@@ -17,22 +17,21 @@ module: {
 	],
 },
 glsl: {
-	chunkPath: __dirname+"/glsl/chunks" // default is "", warning : the path need to be an absolute path
+	chunkPath: path(__dirname,"/glsl/chunks")
 }
 ```
 
 You can now require your glsl files:
 ``` javascript
-var shaderVx = require("./shader-vx.glsl");
-// => return myShader-vx.glsl as string and with the chunks replaced
+var vertexShader = require("shader.vs");
+var fragmentShader = require("shader.fs");
 ```
 
-if you use $name in your shader.glsl it will be replaced by the content of name.glsl ( example with $fog above ) :
+if you use $xxx in your shader its replace by the content of xxx.glsl, for example:
 
 ``` glsl
 void main(void) {
-	gl_FragColor = vec4(1.0);
-	$fog //replace by the content of chunks/fog.glsl
+	$snoise //replace by chunks/snoise.glsl
 }
 ```
 
