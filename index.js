@@ -1,5 +1,6 @@
 var path = require('path')
 var fs = require('fs')
+var loaderUtils = require('loader-utils')
 
 var chunks = {}
 var chunkPath = ""
@@ -13,8 +14,10 @@ module.exports = function(source) {
 		uid.queue = 0
 		uid.done = false
 
-	if(this.options.glsl && this.options.glsl.chunkPath){
-		chunkPath =  this.options.glsl.chunkPath
+	var options = loaderUtils.getOptions(this) || {}
+
+	if(options.glsl && options.glsl.chunkPath){
+		chunkPath =  options.glsl.chunkPath
 	}
 
 	var r = /\$[\w-.]+/gi

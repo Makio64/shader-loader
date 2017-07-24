@@ -12,12 +12,17 @@ npm install shader-loader --save-dev
 Config webpack:
 ``` javascript
 module: {
-	loaders: [
-		{ test: /\.(glsl|vs|fs)$/, loader: 'shader' },
-	],
-},
-glsl: {
-	chunkPath: path(__dirname,"/glsl/chunks")
+	rules: [
+      {
+        test: /\.(glsl|vs|fs)$/,
+        loader: 'shader-loader',
+        options: {
+          glsl: {
+            chunkPath: resolve("/glsl/chunks")
+          }
+        }
+      }
+	]
 }
 ```
 
