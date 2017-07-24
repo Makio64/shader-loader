@@ -1,6 +1,6 @@
 # Glsl loader for webpack
 
-Glsl loader for webpack & webpack2. It support chunks & inspire by [ShaderLoader](https://github.com/cabbibo/ShaderLoader)
+Glsl loader for webpack2 & webpack3. It support chunks & inspire by [ShaderLoader](https://github.com/cabbibo/ShaderLoader)
 
 ## Getting started
 
