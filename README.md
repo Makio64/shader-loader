@@ -19,7 +19,8 @@ module: {
         options: {
           glsl: {
             chunkPath: resolve("/glsl/chunks")
-          }
+          },
+          minify: true
         }
       }
 	]

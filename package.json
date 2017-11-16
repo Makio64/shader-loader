@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Makio64/shader-loader",
   "dependencies": {
+    "glsl-tokenizer": "^2.1.2",
     "loader-utils": "^1.1.0"
   }
 }

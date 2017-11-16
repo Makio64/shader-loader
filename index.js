@@ -1,9 +1,11 @@
 var path = require('path')
 var fs = require('fs')
 var loaderUtils = require('loader-utils')
+var tokenize = require('glsl-tokenizer/string')
 
 var chunks = {}
 var chunkPath = ""
+var minify = false
 
 module.exports = function(source) {
 	this.cacheable && this.cacheable()
@@ -15,6 +17,8 @@ module.exports = function(source) {
 		uid.done = false
 
 	var options = loaderUtils.getOptions(this) || {}
+
+	minify = options.minify === true
 
 	if(options.glsl && options.glsl.chunkPath){
 		chunkPath =  options.glsl.chunkPath
@@ -77,6 +81,17 @@ function onChunksLoaded(){
 		var re = new RegExp("(\\"+key+")", "gi")
 		this.finalString = this.finalString.replace(re,chunks[key])
 	}
+
+	if(minify){
+		var tok = tokenize(this.finalString)
+		this.finalString = ''
+        for(var i=0; i < tok.length; i++){
+            if(tok[i].type !== 'line-comment' && tok[i].type !== 'block-comment' && tok[i].type !== 'eof'){
+				this.finalString += tok[i].data
+			}
+        }
+        this.finalString = this.finalString.replace(/\s\s+/g, ' ');
+    }
 
 	this.finalString = "module.exports = " + JSON.stringify(this.finalString)
 	this.callback(null, this.finalString)
