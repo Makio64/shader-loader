@@ -84,14 +84,14 @@ function onChunksLoaded(){
 
 	if(minify){
 		var tok = tokenize(this.finalString)
-		this.finalString = ''
-        for(var i=0; i < tok.length; i++){
-            if(tok[i].type !== 'line-comment' && tok[i].type !== 'block-comment' && tok[i].type !== 'eof'){
+		this.finalString = ""
+		for(var i=0; i < tok.length; i++){
+			if(tok[i].type !== "line-comment" && tok[i].type !== "block-comment" && tok[i].type !== "eof"){
 				this.finalString += tok[i].data
 			}
-        }
-        this.finalString = this.finalString.replace(/\s\s+/g, ' ');
-    }
+		}
+		this.finalString = this.finalString.replace(/(\r\n|\n|\r|\t)/g, " ").replace(/ {2,}/g, " ");
+	}
 
 	this.finalString = "module.exports = " + JSON.stringify(this.finalString)
 	this.callback(null, this.finalString)
