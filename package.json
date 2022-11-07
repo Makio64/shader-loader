@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/Makio64/shader-loader",
   "dependencies": {
-    "loader-utils": "^1.1.0"
+    "loader-utils": "^3.2.0"
   }
 }

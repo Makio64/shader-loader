@@ -14,7 +14,7 @@ module.exports = function(source) {
 		uid.queue = 0
 		uid.done = false
 
-	var options = loaderUtils.getOptions(this) || {}
+	var options = this.getOptions() || {}
 
 	if(options.glsl && options.glsl.chunkPath){
 		chunkPath =  options.glsl.chunkPath
